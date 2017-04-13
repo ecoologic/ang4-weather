@@ -1,6 +1,5 @@
 import { Component }             from '@angular/core';
 import { Http, URLSearchParams } from '@angular/http';
-import { Observable }            from 'rxjs/Observable';
 
 @Component({
   selector: 'my-app',
