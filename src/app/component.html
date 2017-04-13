@@ -1,10 +1,8 @@
 <h1>Weather App</h1>
 
-The weather today in {{location}} is {{weather}}.
-
-<input [(ngModel)]="location" placeholder="{{location}}">
+<input [(ngModel)]="place" placeholder="{{place}}">
 <button (click)="onClickMe()">Click me!</button>
 
-<pre>
-  {{data}}
-</pre>
+<p>
+The weather in {{place}} tomorrow is {{weather}}.
+</p>
