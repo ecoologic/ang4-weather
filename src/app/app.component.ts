@@ -1,23 +1,24 @@
-import { Component }             from '@angular/core';
-import { Http, URLSearchParams } from '@angular/http';
+import { Component } from '@angular/core';
+import { Http }      from '@angular/http';
+
+import { WeatherService } from './weather/weather.service';
 
 @Component({
   selector: 'my-app',
+  providers: [WeatherService],
   templateUrl: './component.html'
 })
 
 export class AppComponent  {
-  constructor(private http: Http) {}
+  constructor(private http: Http, private weatherService: WeatherService) {}
 
   place : String = "Robina";
   weather : String = "currently unknown";
 
   onClickMe() {
-    console.log("getData");
+    console.log("onClickMe" + this.place);
 
-    this.http
-        .get('http://www-beta.localsearch.com.au/api/data/v2/forecasts?filter[suburb]=' + this.place)
-        .subscribe((response) => { this.weather = response.json().data[0].attributes.forecast[0].icon_phrase },
-                   (error) => { this.weather = "Who knows" });
+    this.weatherService.get(this.place)
+      .subscribe(data => this.weather = data.forecast[0].icon_phrase)
   };
 }

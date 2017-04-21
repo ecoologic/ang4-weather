@@ -9,3 +9,4 @@
 * Resource confusion Ang1 vs ang2
 * Doesn't delete old generated files when remaming
 * Mixing ts and compiled code seems noisy
+* Errors only show when restarting the server
